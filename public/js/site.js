@@ -60,19 +60,22 @@ jshelper.selectDropdownValues = function(dropdown, selectedValues){
 };
 jshelper.handleErrors = function(xhr) {
     let statusCode = xhr.status;
-    // Handle different status codes
-    if (statusCode === 200) {
-        // Code for a successful response (OK)
+
+    if (statusCode === 200) {           // OK
         console.log('Solicitud exitosa');
-    } else if (statusCode === 419) {
+    } else if (statusCode === 400) {   // Bad Request
+        jshelper.error('Solicitud Erronea');
+        console.log('Bad Request');
+    } else if (statusCode === 401) {   // Unauthorized
+        jshelper.error('Privilegios insuficientes');
+        console.log('Unauthorized');
+    } else if (statusCode === 422) {   // Unprocesable entity
         // Code for a "Not Found" response
-        jshelper.error('Ha expridado el token, por favor recarge el formulario');
-        console.log('Token expirado');
-    } else if (statusCode === 404) {
-        // Code for a "Not Found" response
-        console.log('Requested resource not found');
-    } else if (statusCode === 500) {
-        // Code for a server error response
+        jshelper.error('No se logro prcesar la solicitud');
+        console.log('Unprocesable entity');
+    } else if (statusCode === 404) {   // Not Found
+        console.log('Not found');
+    } else if (statusCode === 500) {   // Server error
         jshelper.error('Ha ocurrido un Error interno en el Servidor');
         console.log('Internal server error');
     } else {

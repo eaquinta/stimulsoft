@@ -177,6 +177,8 @@ return [
         Spatie\Backup\BackupServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
 
+        Stimulsoft\Laravel\StiServiceProvider::class,
+
     ])->toArray(),
 
     /*

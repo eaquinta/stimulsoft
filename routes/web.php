@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HandlerController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\PermissionController;
 
@@ -71,3 +72,9 @@ Route::group (['middleware' => ['auth']], function () {
     Route::get('/permissions/{id}/audits',[PermissionController::class,'audits'])->name('permissions.audits');
     Route::resource('/permissions', PermissionController::class)->names("permissions");
 });
+
+
+Route::get('/viewer', function () {
+	return view('viewer');
+});
+Route::any('/handler', [HandlerController::class, 'process']);
