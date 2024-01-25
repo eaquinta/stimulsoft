@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/site.js": "/js/site.js",
+    "/css/site.css": "/css/site.css",
+    "/css/crud/datatable.css": "/css/crud/datatable.css",
+    "/css/crud/view-modal.css": "/css/crud/view-modal.css",
+    "/css/crud/yadcf.css": "/css/crud/yadcf.css",
+    "/js/crud/datatable.js": "/js/crud/datatable.js"
+}
