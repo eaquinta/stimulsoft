@@ -78,3 +78,4 @@ Route::get('/viewer', function () {
 	return view('viewer');
 });
 Route::any('/handler', [HandlerController::class, 'process']);
+Route::get('/stimulviewer1', [StimulsoftController::class, 'stimulviewer1']);
