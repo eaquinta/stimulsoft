@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\HandlerController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\StimulsoftController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +81,7 @@ Route::get('/viewer', function () {
 });
 Route::any('/handler', [HandlerController::class, 'process']);
 Route::get('/stimulviewer1', [StimulsoftController::class, 'stimulviewer1']);
+Route::get('/test1', function (){
+    return 'HolA';
+});
+Route::get('/reports', [ReportController::class, 'showReport']);

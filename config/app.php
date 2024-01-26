@@ -194,7 +194,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'DataTables' => Yajra\DataTables\Facades\DataTables::class
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Stimulsoft' => Stimulsoft\Laravel\Facades\Stimulsoft::class,
     ])->toArray(),
 
 ];
