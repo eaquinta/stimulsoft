@@ -21,4 +21,9 @@ class ReportController extends Controller
         // Return the report as a view
         return view('report', ['report' => $report]);
     }
+
+    public function viewer(Request $request){
+        $name = $request->name; //$request->query('name');
+        return view('viewer', compact('name'));
+    }
 }

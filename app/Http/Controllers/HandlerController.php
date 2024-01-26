@@ -29,8 +29,7 @@ class HandlerController extends BaseController
         $handler->process();
     }
 
-    public function onPrepareVariables(StiVariablesEventArgs $args): StiResult
-    {
+    public function onPrepareVariables(StiVariablesEventArgs $args): StiResult {
         // You can change the values of the variables used in the report.
         // The new values will be passed to the report generator.
         /*
@@ -48,7 +47,7 @@ class HandlerController extends BaseController
 
         // Values for 'Variables.mrt' report template.
         if (count($args->variables) > 0) {
-            $args->variables['Name']->value = 'Maria';
+            $args->variables['Name']->value = 'Rex';
             $args->variables['Surname']->value = 'Anders';
             $args->variables['Email']->value = 'm.anders@stimulsoft.com';
             $args->variables['Address']->value = 'Obere Str. 57, Berlin';
@@ -59,8 +58,7 @@ class HandlerController extends BaseController
         return StiResult::success();
     }
 
-    public function onBeginProcessData(StiDataEventArgs $args): StiResult
-    {
+    public function onBeginProcessData(StiDataEventArgs $args): StiResult {
         // You can change the connection string.
         /*
         if ($args->connection == 'MyConnectionName')
@@ -96,23 +94,19 @@ class HandlerController extends BaseController
         //return StiResult::error('Message about any connection error.');
     }
 
-    public function onEndProcessData(StiDataEventArgs $args): StiResult
-    {
+    public function onEndProcessData(StiDataEventArgs $args): StiResult {
         return StiResult::success();
     }
 
-    public function onPrintReport(StiExportEventArgs $args): StiResult
-    {
+    public function onPrintReport(StiExportEventArgs $args): StiResult {
         return StiResult::success();
     }
 
-    public function onBeginExportReport(StiExportEventArgs $args): StiResult
-    {
+    public function onBeginExportReport(StiExportEventArgs $args): StiResult {
         return StiResult::success();
     }
 
-    public function onEndExportReport(StiExportEventArgs $args): StiResult
-    {
+    public function onEndExportReport(StiExportEventArgs $args): StiResult {
         // Getting the file name with the extension.
         $reportName = $args->fileName . '.' . $args->fileExtension;
 
@@ -125,8 +119,7 @@ class HandlerController extends BaseController
         //return StiResult::error('An error occurred while exporting the report.');
     }
 
-    public function onEmailReport(StiExportEventArgs $args): StiResult
-    {
+    public function onEmailReport(StiExportEventArgs $args): StiResult {
         // These parameters will be used when sending the report by email. You must set the correct values.
         $args->emailSettings->from = '*****@gmail.com';
         $args->emailSettings->host = 'smtp.google.com';
@@ -143,16 +136,14 @@ class HandlerController extends BaseController
         return StiResult::success('Email sent successfully.');
     }
 
-    public function onCreateReport(StiReportEventArgs $args): StiResult
-    {
+    public function onCreateReport(StiReportEventArgs $args): StiResult {
         // You can load a new report and send it to the designer.
         //$args->report = file_get_contents('reports/SimpleList.mrt');
 
         return StiResult::success();
     }
 
-    public function onSaveReport(StiReportEventArgs $args): StiResult
-    {
+    public function onSaveReport(StiReportEventArgs $args): StiResult {
         // Getting the correct file name of the report template.
         $reportFileName = strlen($args->fileName) > 0 ? $args->fileName : 'Report.mrt';
         if (strlen($reportFileName) < 5 || substr($reportFileName, -4) !== '.mrt')
@@ -166,8 +157,7 @@ class HandlerController extends BaseController
         //return StiResult::error('An error occurred while saving the report file on the server side.');
     }
 
-    public function onSaveAsReport(StiReportEventArgs $args): StiResult
-    {
+    public function onSaveAsReport(StiReportEventArgs $args): StiResult {
         // This event works the same as the 'onSaveReport' event.
         return StiResult::success();
     }

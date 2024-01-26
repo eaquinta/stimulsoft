@@ -76,10 +76,10 @@ Route::group (['middleware' => ['auth']], function () {
 });
 
 
-Route::get('/viewer', function () {
-	return view('viewer');
-});
+Route::get('/viewer', [ReportController::class, 'viewer']);
 Route::any('/handler', [HandlerController::class, 'process']);
+
+
 Route::get('/stimulviewer1', [StimulsoftController::class, 'stimulviewer1']);
 Route::get('/test1', function (){
     return 'HolA';
