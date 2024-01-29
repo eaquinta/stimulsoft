@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Stimulsoft\Report\StiReport;
 
@@ -23,7 +24,11 @@ class ReportController extends Controller
     }
 
     public function viewer(Request $request){
-        $name = $request->name; //$request->query('name');
-        return view('viewer', compact('name'));
+        $users = User::all();
+
+        return view('viewer', [
+            'users' => $users,
+            'license' => env('SITUMULSOFT_LICENSE_FILE')
+        ]);
     }
 }
