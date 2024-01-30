@@ -9,7 +9,6 @@
         $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Designer);
         $js->renderHtml();
     ?>
-    <script src="vendor/stimulsoft/reports-php/localization/stimulsoft.reports.js"></script>
 
     <script type="text/javascript">
         var license = @json($license);
